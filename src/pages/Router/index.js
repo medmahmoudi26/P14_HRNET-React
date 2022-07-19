@@ -3,6 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import { makeStyles } from '@mui/styles';
 import routes from './routes';
+import CreateEmployee from '../CreateEmployee/index';
+import EmployeeGrid from '../EmployeeGrid/index';
 
 
 const useStyle = makeStyles((theme) => ({
@@ -26,7 +28,7 @@ function Router() {
                      /> }
                      strict exact />
               <Route path={ routes.EMPLOYEE }
-                     element={ <DataGridEmployee
+                     element={ <EmployeeGrid
                      /> }
                      strict exact />
               <Route path={ routes.DEFAULT } element={
