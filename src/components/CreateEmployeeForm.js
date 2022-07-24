@@ -6,6 +6,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import { AlertDialog } from 'med-dialog-modal';
 import DataTables from 'datatables-plugin-react';
+import { STATES_US } from '../utils/constants';
 
 
 const useStyle = makeStyles(() => ({
@@ -147,6 +148,14 @@ const CreateEmployeeForm = () => {
                 onChange={
                   (e) => handleChange(e, setCity) }
             />
+
+            <select aria-required="true" name="state" id="state" onChange={ (e) => setStateName(e.target.value) }
+                    required
+                    value={ stateName }>
+              { STATES_US.map(state => {
+                return (<option key={ state.name } value={ state.name }>{ state.name }</option>);
+              }) }
+            </select>
             
             <TextField
                 id="outlined-number"
