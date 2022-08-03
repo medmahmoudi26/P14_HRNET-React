@@ -5,7 +5,6 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import { AlertDialog } from 'med-dialog-modal';
-import DataTables from 'datatables-plugin-react';
 import { STATES_US } from '../utils/constants';
 
 
@@ -24,6 +23,7 @@ const useStyle = makeStyles(() => ({
 }));
 
 const CreateEmployeeForm = () => {
+  const today = new Date();
   const classes = useStyle();
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -120,6 +120,7 @@ const CreateEmployeeForm = () => {
                   value={ dateBirth }
                   onChange={ (date) => handleChangeDate(date, setDateBirth) }
                   renderInput={ (params) => <TextField { ...params } /> }
+                  maxDate={today}
               />
             </LocalizationProvider>
             <LocalizationProvider dateAdapter={ AdapterDateFns }>
